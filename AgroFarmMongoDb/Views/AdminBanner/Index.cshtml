@@ -1,0 +1,30 @@
+﻿@model List<Banner>
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<h3>Banner Bilgileri Listesi</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>BannerID</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Açıklama</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.BannerId</td>
+            <td>@x.Title</td>
+            <td>@x.SubTitle</td>
+            <td>@x.Description</td>
+
+        </tr>
+
+    }
+</table>

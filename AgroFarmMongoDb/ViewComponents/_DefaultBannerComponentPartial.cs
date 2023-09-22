@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AgroFarmMongoDb.Services.Banner;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AgroFarmMongoDb.ViewComponents
 {
     public class _DefaultBannerComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IBannerService _bannerService;
+
+        public _DefaultBannerComponentPartial(IBannerService bannerService)
         {
-            return View();
+            _bannerService = bannerService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _bannerService.GetAllBanner();
+            return View(values);
         }
     }
 }

@@ -1,4 +1,6 @@
 
+using AgroFarmMongoDb.Services.About;
+using AgroFarmMongoDb.Services.Banner;
 using AgroFarmMongoDb.Settings;
 using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 
+builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<IBannerService, BannerService>();
 
 
 builder.Services.AddSingleton<IDatabaseSettings>(sp =>
