@@ -14,29 +14,32 @@ namespace AgroFarmMongoDb.Services.About
             _aboutCollection = database.GetCollection<Models.About>(_databaseSettings.AboutCollectionName);
         }
 
-        public Task CreateAbout(Models.About about)
+        public async Task CreateAbout(Models.About about)
         {
-            throw new NotImplementedException();
+            await _aboutCollection.InsertOneAsync(about);
         }
 
-        public Task DeleteAbout(string id)
+        public async Task DeleteAbout(string id)
         {
-            throw new NotImplementedException();
+            await _aboutCollection.DeleteOneAsync(x => x.AboutId == id);
         }
 
-        public Task<List<Models.About>> GetAllAbout()
+        public async Task<List<Models.About>> GetAllAbout()
         {
-            throw new NotImplementedException();
+            var values = await _aboutCollection.Find(x => true).ToListAsync();
+            return values;
         }
 
-        public Task<Models.About> GetByIdAbout()
+        public async Task<Models.About> GetByIdAbout(string id)
         {
-            throw new NotImplementedException();
+            var value = await _aboutCollection.Find(x => x.AboutId == id).FirstOrDefaultAsync();
+            return value;
         }
 
-        public Task UpdateAbout(Models.About about)
+        public async Task UpdateAbout(Models.About about)
         {
-            throw new NotImplementedException();
+            var value = await _aboutCollection.FindOneAndReplaceAsync(x => x.AboutId == about.AboutId, about);
+
         }
     }
 }

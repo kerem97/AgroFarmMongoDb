@@ -4,7 +4,7 @@
     {
         Task<List<Models.About>> GetAllAbout();
 
-        Task<Models.About> GetByIdAbout();
+        Task<Models.About> GetByIdAbout(string id);
 
         Task CreateAbout(Models.About about);
 
