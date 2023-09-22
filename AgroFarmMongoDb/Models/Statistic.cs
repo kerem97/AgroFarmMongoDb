@@ -2,14 +2,16 @@
 
 namespace AgroFarmMongoDb.Models
 {
-    public class Banner
+    public class Statistic
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public string BannerId { get; set; }
+        public string StatisticId { get; set; }
 
         public string Title { get; set; }
-        public string SubTitle { get; set; }
+        public string Icon { get; set; }
+        public int Count { get; set; }
+
         public string Description { get; set; }
     }
 }

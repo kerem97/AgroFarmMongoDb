@@ -6,7 +6,7 @@ namespace AgroFarmMongoDb.Models
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public int AboutId { get; set; }
+        public string AboutId { get; set; }
 
         public string Title { get; set; }
         public string SubTitle { get; set; }

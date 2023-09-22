@@ -2,14 +2,17 @@
 
 namespace AgroFarmMongoDb.Models
 {
-    public class Banner
+    public class Testimonial
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public string BannerId { get; set; }
+        public string TestimonialId { get; set; }
 
         public string Title { get; set; }
-        public string SubTitle { get; set; }
         public string Description { get; set; }
+        public string Name { get; set; }
+        public string City { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
+
