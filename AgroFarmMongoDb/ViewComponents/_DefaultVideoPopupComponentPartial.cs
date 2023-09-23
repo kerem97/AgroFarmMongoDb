@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AgroFarmMongoDb.Services.VideoPopup;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AgroFarmMongoDb.ViewComponents
 {
     public class _DefaultVideoPopupComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IVideoPopupService _videoPopup;
+
+        public _DefaultVideoPopupComponentPartial(IVideoPopupService videoPopup)
         {
-            return View();
+            _videoPopup = videoPopup;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _videoPopup.GetAllVideoPopup();
+            return View(values);
         }
     }
 }

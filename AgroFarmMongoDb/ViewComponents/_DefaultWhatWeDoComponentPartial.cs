@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AgroFarmMongoDb.Services.WhatWeDo;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AgroFarmMongoDb.ViewComponents
 {
     public class _DefaultWhatWeDoComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IWhatWeDoService _whatWeDoService;
+
+        public _DefaultWhatWeDoComponentPartial(IWhatWeDoService whatWeDoService)
         {
-            return View();
+            _whatWeDoService = whatWeDoService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _whatWeDoService.GetAllWhatWeDo();
+            return View(values);
         }
     }
 }

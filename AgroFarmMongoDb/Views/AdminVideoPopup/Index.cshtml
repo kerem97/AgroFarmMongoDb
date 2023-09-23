@@ -1,10 +1,10 @@
-﻿@model List<About>
+﻿@model List<VideoPopup>
 
 @{
     Layout = null;
 }
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<h3>Hakkımızda Bilgileri Listesi</h3>
+<h3>Video Bilgileri Listesi</h3>
 <br />
 
 <table class="table table-bordered">
@@ -13,27 +13,19 @@
         <th>Başlık</th>
         <th>Alt Başlık</th>
         <th>Açıklama</th>
-        <th>Hizmet1</th>
-        <th>Hizmet2</th>
-        <th>Hizmet3</th>
-        <th>Görsel Url1</th>
-        <th>Görsel Url2</th>
-        <th>Görsel Url3</th>
+        <th>VideoUrl</th>
+
     </tr>
 
     @foreach (var x in Model)
     {
         <tr>
-            <td>@x.AboutId</td>
+            <td>@x.VideoPopupId</td>
             <td>@x.Title</td>
             <td>@x.SubTitle</td>
             <td>@x.Description</td>
-            <td>@x.Service1</td>
-            <td>@x.Service2</td>
-            <td>@x.Service3</td>
-            <td>@x.ImageUrl1</td>
-            <td>@x.ImageUrl2</td>
-            <td>@x.ImageUrl3</td>
+            <td>@x.VideoUrl</td>
+
         </tr>
 
     }

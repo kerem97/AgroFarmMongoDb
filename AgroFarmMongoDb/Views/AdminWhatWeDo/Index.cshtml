@@ -1,0 +1,30 @@
+﻿@model List<AgroFarmMongoDb.Models.WhatWeDo>
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<h3>Hakkımızda Bilgileri Listesi</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>GörselUrl</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.WhatWeDoId.</td>
+            <td>@x.Title</td>
+            <td>@x.Description</td>
+            <td>@x.ImageUrl</td>
+
+        </tr>
+
+    }
+</table>

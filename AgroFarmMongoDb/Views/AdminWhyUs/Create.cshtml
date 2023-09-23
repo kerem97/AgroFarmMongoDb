@@ -1,0 +1,66 @@
+﻿@model AgroFarmMongoDb.Models.WhyUs
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<h3>Neden Biz Bilgileri Ekleme Sayfası</h3>
+<br />
+
+<form method="post" asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="control-label"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="CircleTitle1" class="control-label"></label>
+        <input asp-for="CircleTitle1" class="form-control" />
+        <span asp-validation-for="CircleTitle1" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="CircleDescription1" class="control-label"></label>
+        <input asp-for="CircleDescription1" class="form-control" />
+        <span asp-validation-for="CircleDescription1" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="CirclePercent1" class="control-label"></label>
+        <input asp-for="CirclePercent1" class="form-control" />
+        <span asp-validation-for="CirclePercent1" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="CircleTitle2" class="control-label"></label>
+        <input asp-for="CircleTitle2" class="form-control" />
+        <span asp-validation-for="CircleTitle2" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="CircleDescription2" class="control-label"></label>
+        <input asp-for="CircleDescription2" class="form-control" />
+        <span asp-validation-for="CircleDescription2" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="CirclePercent2" class="control-label"></label>
+        <input asp-for="CirclePercent2" class="form-control" />
+        <span asp-validation-for="CirclePercent2" class="text-danger"></span>
+    </div>
+
+    <button class="btn-outline-info">Oluştur</button>
+</form>

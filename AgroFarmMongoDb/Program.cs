@@ -1,6 +1,9 @@
 
 using AgroFarmMongoDb.Services.About;
 using AgroFarmMongoDb.Services.Banner;
+using AgroFarmMongoDb.Services.VideoPopup;
+using AgroFarmMongoDb.Services.WhatWeDo;
+using AgroFarmMongoDb.Services.WhyUs;
 using AgroFarmMongoDb.Settings;
 using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,9 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("D
 
 builder.Services.AddScoped<IAboutService, AboutService>();
 builder.Services.AddScoped<IBannerService, BannerService>();
+builder.Services.AddScoped<IWhatWeDoService, WhatWeDoService>();
+builder.Services.AddScoped<IVideoPopupService, VideoPopupService>();
+builder.Services.AddScoped<IWhyUsService, WhyUsService>();
 
 
 builder.Services.AddSingleton<IDatabaseSettings>(sp =>

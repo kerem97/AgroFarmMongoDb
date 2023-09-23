@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AgroFarmMongoDb.Services.WhyUs;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AgroFarmMongoDb.ViewComponents
 {
-    public class _DefaultWhyUsComponentPartial:ViewComponent
+    public class _DefaultWhyUsComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IWhyUsService _whyUsService;
+
+        public _DefaultWhyUsComponentPartial(IWhyUsService whyUsService)
         {
-            return View();
+            _whyUsService = whyUsService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _whyUsService.GetAllWhyUs();
+            return View(values);
         }
     }
 }
