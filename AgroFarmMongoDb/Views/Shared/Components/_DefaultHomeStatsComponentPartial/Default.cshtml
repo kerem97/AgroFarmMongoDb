@@ -1,42 +1,31 @@
-﻿<section class="w3l-stats-main py-5" id="stats">
+﻿@model List<Statistic>
+
+<section class="w3l-stats-main py-5" id="stats">
     <div class="container py-lg-4">
         <div class="row stats-con">
-            <div class="col-lg-6 stats-content-left pe-lg-5">
-                <div class="stats_info counter_grid1 text-left">
-                    <div class="icon stat-icon">
-                        <span class="fas fa-users"></span>
-                        <p class="counter">5233</p>
-                    </div>
-                    <div class="stat-icon-des text-left">
+            @foreach (var x in Model)
+            {
+                <div class="col-lg-6 stats-content-left pe-lg-5">
+                    <div class="stats_info counter_grid1 text-left">
+                        <div class="icon stat-icon">
+                            <span class="@x.Icon"></span>
+                            <p class="counter">@x.Count</p>
+                        </div>
+                        <div class="stat-icon-des text-left">
 
-                        <h3 class="title-w3l">
+                            <h3 class="title-w3l">
 
-                            Professional Farmers
-                        </h3>
-                        <p class="para-stat">
-                            Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                            ultrices in ligula.
-                        </p>
+                                @x.Title
+                            </h3>
+                            <p class="para-stat">
+                                @x.Description
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 stats-content-left ps-lg-5 mt-lg-0 mt-md-5 mt-4">
-                <div class="stats_info counter_grid1 text-left">
-                    <div class="icon stat-icon">
-                        <span class="fas fa-tractor"></span>
-                        <p class="counter">2233</p>
-                    </div>
-                    <div class="stat-icon-des text-left">
-                        <h3 class="title-w3l">
-                            Best Quality Standards
-                        </h3>
-                        <p class="para-stat">
-                            Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                            ultrices in ligula.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            }
+
+
         </div>
     </div>
 </section>
